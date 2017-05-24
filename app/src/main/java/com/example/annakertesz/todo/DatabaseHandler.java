@@ -17,13 +17,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "ToDoManager";
+    private static final String DATABASE_NAME = "ToDoManager.db";
     private static final String TABLE_CARDS = "cards";
 
     // Contacts Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
     private static final String KEY_ISDONE = "is_done";
+
+
 
     public DatabaseHandler(Context context) {
 
@@ -89,7 +91,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 ToDoCard card = new ToDoCard();
-                card.setTitle(cursor.getString(0));
+                card.setTitle(cursor.getString(1));
                 card.setIsDone(Boolean.valueOf(cursor.getString(2)));
                 // Adding contact to list
                 cardList.add(card);

@@ -51,12 +51,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
-        public Button doneBtn;
 
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.cardTitle);
-            doneBtn = (Button) view.findViewById(R.id.doneBtn);
         }
     }
 

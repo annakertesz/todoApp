@@ -19,30 +19,16 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private CardAdapter adapter;
     private List<ToDoCard> cardList;
-    private Button btn;
+    private Button addBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         db = new DatabaseHandler(this);
-        cardList = Arrays.asList(new ToDoCard("Title 1"), new ToDoCard("Title 2"), new ToDoCard("Title 3"));
-
-
-//        btn = (Button) findViewById(R.id.add_button);
-
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ToDoCard card = new ToDoCard("bla bla");
-//                db.addCard(card);
-//            }
-//        });
-
-
+        addBtn = (Button) findViewById(R.id.add_button);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-//        cardList = db.getAllCards();
-        System.out.println("!!! " + cardList);
+        cardList = db.getAllCards();
         adapter = new CardAdapter(this, cardList);
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
@@ -51,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         prepareCards();
+
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToDoCard card = new ToDoCard("bla bla");
+                cardList.add(card);
+                db.addCard(card);
+                prepareCards();
+            }
+        });
+
+
     }
 
     private void prepareCards() {

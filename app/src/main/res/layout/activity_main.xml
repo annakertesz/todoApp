@@ -18,12 +18,12 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp" />
 
-    <!--<Button-->
-        <!--android:id="@+id/add_button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="new"-->
-        <!--tools:layout_editor_absoluteX="278dp"-->
-        <!--tools:layout_editor_absoluteY="427dp" />-->
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="new"
+        tools:layout_editor_absoluteX="278dp"
+        tools:layout_editor_absoluteY="427dp" />
 
 </RelativeLayout>
